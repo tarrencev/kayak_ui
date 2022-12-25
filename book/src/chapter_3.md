@@ -12,7 +12,7 @@ I think it's best if we showcase a simple example:
 // This is because we need to diff the previous values of these.
 // Default is used to make creating widgets a little easier.
 // And component is required since this is a bevy component!
-[#derive(Component, Clone, PartialEq, Default)]
+#[derive(Component, Clone, PartialEq, Default)]
 pub struct MyButtonProps {
 
 }
@@ -67,7 +67,7 @@ pub fn my_button_render(
 ) {
     // Grab our children for our button widget:
     if let Ok(children) = query.get(entity) {
-
+        let parent_id = Some(entity);
         let background_styles = KStyle {
             // Lets use red for our button background!
             background_color: StyleProp::Value(Color::RED),
